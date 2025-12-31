@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Experience</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    input,
+    button {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+      width: 260px;
+    }
+
+    button {
+      background: gold;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #finalMessage {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #nameText {
+      font-size: clamp(28px, 6vw, 40px);
+      margin-bottom: 10px;
+    }
+
+    #wishText {
+      font-size: clamp(16px, 4.5vw, 20px);
+      line-height: 1.5;
+      max-width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="nameScreen">
+    <h1>✨ Please Enter Your Name ✨</h1>
+    <input type="text" id="userName" placeholder="Your name">
+    <button onclick="showMessage()">Continue</button>
+  </div>
+
+  <div id="finalMessage">
+    <h1 id="nameText"></h1>
+    <p id="wishText"></p>
+  </div>
+
+  <script>
+    const YEAR = "2026"; // Change year here
+    const AUDIENCE = "everyone"; // ladies | gentlemen | everyone
+
+    function showMessage() {
+      const name = document.getElementById("userName").value.trim();
+      if (!name) {
+        alert("Please enter your name 😊");
+        return;
+      }
+
+      // Hide input screen
+      document.getElementById("nameScreen").style.display = "none";
+
+      // Show final message
+      document.getElementById("nameText").textContent = `🎆 ${name} 🎆`;
+      document.getElementById("wishText").innerHTML = `
+      Welcome, our dear ${AUDIENCE}, to ${YEAR}.<br><br>
+      <h5>HAPPY NEW YEAR, MY FRIEND! </h5>,<br>
+      As we step into this new chapter,<br>
+      I hope it brings you endless joy,<br>
+      laughter, and success. May every day be filled with<br>
+      love, adventure, and moments that make your heart smile.<br>
+      Here’s to creating unforgettable memories together in 2026!”<br><br>
+      💫 From <strong>BAYUO DENIS EMPIRE</strong> 💫
+    `;
+      document.getElementById("finalMessage").style.display = "block";
+    }
+  </script>
+
+</body>
+
+</html>
